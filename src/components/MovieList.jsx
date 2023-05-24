@@ -54,7 +54,7 @@ const MovieList = () => {
         <div className="p-4">
             <h3 className='font-bold mb-5 text-3xl text-center md:text-left' >Trending Movies</h3>
             <hr />
-            <div className='grid grid-cols-4 mt-5'>
+            <div className='grid md:grid-cols-4 grid-cols mt-5 mt-5'>
             
                 {trendingMovies.map((movie, index) => {
                     return <Moviecard key={index} {...movie} />
@@ -65,7 +65,7 @@ const MovieList = () => {
         <div className="p-4">
             <h3 className='font-bold mb-5 text-3xl text-center md:text-left' >Series</h3>
             <hr />
-            <div className='grid grid-cols-4 mt-5'>
+            <div className='grid md:grid-cols-4 grid-cols mt-5 mt-5'>
             
                 {series.map((movie, index) => {
                     return <Moviecard key={index} {...movie} />
