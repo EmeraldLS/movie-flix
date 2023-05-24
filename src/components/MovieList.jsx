@@ -10,7 +10,6 @@ const MovieList = () => {
         const fetchPopularMovies = async () => {
             try{
                 const {data} = await axios.get("movie/popular")
-                const singleData = await axios.get("movie/502356")
                 setPopularMovies(data.results)
             }catch(err) {
                 console.log(err)
@@ -27,8 +26,6 @@ const MovieList = () => {
 
         const fetchSeries = async () => {
             const {data} = await axios.get("tv/airing_today")
-            const singleData = await axios.get("tv/63935")
-            console.log(singleData)
             setSeries(data.results)
         }
         fetchSeries()

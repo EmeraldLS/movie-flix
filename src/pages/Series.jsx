@@ -5,7 +5,7 @@ import axios from "../api/tmbd"
 
 const Series = () => {
     const getPostURL = (posterpath) => {
-        return `https://www.themoviedb.org/t/p/w1280${posterpath}`
+        return `https://www.themoviedb.org/t/p/w1280/${posterpath}`
     }
     const param = useParams()
     const [movie, setMovie] = useState({})
@@ -16,10 +16,9 @@ const Series = () => {
             setMovie(response.data)
         }
         getMovieDetail()
-        console.log(movie)
-    }, [movieID])
+    }, [])
     const setBackgroundImg = (posterpath) => {
-        return `url(https://www.themoviedb.org/t/p/w1280${posterpath})`
+        return `url(https://www.themoviedb.org/t/p/w1280/${posterpath})`
     }
   return (
     <section className='movie-body' style={{backgroundImage: setBackgroundImg(movie.poster_path), backgroundRepeat: "repeat-x", backgroundSize: "cover"} }>
@@ -34,7 +33,12 @@ const Series = () => {
                 <h4 className='font-bold pt-3'>Overview</h4>
                 <p className='pt-3'>{movie?.overview}</p>
                 <p><span className='font-bold text-2xl pt-3'>Genres: </span> {movie?.genres ? movie?.genres.map(genre => <span className='genre'>{genre.name}</span>) : ""} </p>
-                <p className='mt-3'>Runtime: {movie.runtime}</p>
+                {/* <p
+                className='mt-3'>
+                    Runtime: {movie.episode_run_time ? movie?.episode_run_time.map(episode => {
+                    return( <span>{episode}</span>)
+                }
+                ) : "No Runtime"}</p> */}
             </div>
         </div>
     </section>
